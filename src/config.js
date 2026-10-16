@@ -18,7 +18,7 @@ export const wedding = {
   brideTitleHindi: 'आयुष्मती',
   hashtag: '#AnkitaWedsAkash',
   // Wedding day, used for the countdown (IST).
-  date: '2026-12-12T19:30:00+05:30',
+  date: '2026-12-12T13:30:00+05:30',
   displayDate: 'Saturday, 12th December 2026',
   city: 'Dewas, Madhya Pradesh',
   families: {
@@ -46,14 +46,16 @@ export const wedding = {
   // bgPortraitX: horizontal focus of the portrait art; cardSide: 'left' puts the card left of the couple on wide screens
   // start/end: used by "Add to Calendar" (IST)
   events: [
-    { name: 'Haldi', hindi: 'हल्दी', icon: '', bgLandscape: '/images/haldi-bg-landscape.jpg', bgPortrait: '/images/haldi-bg-portrait.jpg', bgPortraitX: '50%', cardSide: 'left', date: 'Friday, 11 Dec 2026', time: 'Evening onwards', venue: dewas, dress: 'Indo-Western Glam', start: '2026-12-11T18:00:00+05:30', end: '2026-12-11T23:00:00+05:30' },
-    { name: 'Engagement & Sangeet', hindi: 'सगाई एवं संगीत', icon: '/images/events/icon-sangeet.jpg', bgLandscape: '/images/sangeet-bg-landscape.jpg', bgPortrait: '/images/sangeet-bg-portrait.jpg', bgPortraitX: '50%', cardSide: 'left', date: 'Friday, 11 Dec 2026', time: 'Evening onwards', venue: dewas, dress: 'Indo-Western Glam', start: '2026-12-11T18:00:00+05:30', end: '2026-12-11T23:00:00+05:30' },
-    { name: 'Wedding Ceremony', hindi: 'शुभ विवाह', icon: '/images/events/icon-wedding.jpg', bgLandscape: '/images/vivah-bg-landscape.jpg', bgPortrait: '/images/vivah-bg-portrait.jpg', bgPortraitX: '50%', cardSide: 'left', date: 'Saturday, 12 Dec 2026', time: '7:30 PM onwards', venue: dewas, dress: 'Traditional Ethnic', start: '2026-12-12T19:30:00+05:30', end: '2026-12-12T23:59:00+05:30' },
-    { name: 'Reception', hindi: 'वर-वधू स्वागत समारोह', icon: '/images/events/icon-reception.jpg', bgLandscape: '/images/reception-bg-landscape.jpg', bgPortrait: '/images/reception-bg-portrait.jpg', bgPortraitX: '100%', cardSide: 'left', date: 'Saturday, 12 Dec 2026', time: 'Evening onwards', venue: dewas, dress: 'Festive Formal', start: '2026-12-12T19:00:00+05:30', end: '2026-12-12T23:00:00+05:30' },
+    { name: 'Haldi', hindi: 'हल्दी', icon: '', bgLandscape: '/images/haldi-bg-landscape.jpg', bgPortrait: '/images/haldi-bg-portrait.jpg', bgPortraitX: '50%', cardSide: 'left', date: 'Friday, 11 Dec 2026', time: '11:00 AM onwards', venue: dewas, dress: 'Indo-Western Glam', start: '2026-12-11T11:00:00+05:30', end: '2026-12-11T14:00:00+05:30' },
+    { name: 'Engagement', hindi: 'सगाई', icon: '', cardSide: 'left', date: 'Friday, 11 Dec 2026', time: '6:00 PM onwards', venue: dewas, dress: 'Indo-Western Glam', start: '2026-12-11T18:00:00+05:30', end: '2026-12-11T19:30:00+05:30' },
+    { name: 'Sangeet', hindi: 'संगीत', icon: '/images/events/icon-sangeet.jpg', bgLandscape: '/images/sangeet-bg-landscape.jpg', bgPortrait: '/images/sangeet-bg-portrait.jpg', bgPortraitX: '50%', cardSide: 'left', date: 'Friday, 11 Dec 2026', time: '7:30 PM onwards', venue: dewas, dress: 'Indo-Western Glam', start: '2026-12-11T19:30:00+05:30', end: '2026-12-11T23:30:00+05:30' },
+    { name: 'Baraat', hindi: 'बारात', icon: '', cardSide: 'left', date: 'Saturday, 12 Dec 2026', time: '11:00 AM onwards', venue: dewas, dress: 'Traditional Ethnic', start: '2026-12-12T11:00:00+05:30', end: '2026-12-12T13:30:00+05:30' },
+    { name: 'Wedding Ceremony', hindi: 'शुभ विवाह', icon: '/images/events/icon-wedding.jpg', bgLandscape: '/images/vivah-bg-landscape.jpg', bgPortrait: '/images/vivah-bg-portrait.jpg', bgPortraitX: '50%', cardSide: 'left', date: 'Saturday, 12 Dec 2026', time: '1:30 PM onwards', venue: dewas, dress: 'Traditional Ethnic', start: '2026-12-12T13:30:00+05:30', end: '2026-12-12T18:00:00+05:30' },
+    { name: 'Reception', hindi: 'वर-वधू स्वागत समारोह', icon: '/images/events/icon-reception.jpg', bgLandscape: '/images/reception-bg-landscape.jpg', bgPortrait: '/images/reception-bg-portrait.jpg', bgPortraitX: '100%', cardSide: 'left', date: 'Saturday, 12 Dec 2026', time: '7:30 PM onwards', venue: dewas, dress: 'Festive Formal', start: '2026-12-12T19:30:00+05:30', end: '2026-12-12T23:30:00+05:30' },
   ],
   // Every event is at the same place, so the Venue section shows it once
   venues: [
-    { ...dewas, label: 'Haldi · Engagement · Sangeet · Wedding · Reception' },
+    { ...dewas, label: 'Haldi · Engagement · Sangeet · Baraat · Wedding · Reception' },
   ],
   contacts: [
     { name: 'Akash', phone: '+91 90394 71881' },
