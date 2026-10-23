@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { STEPS, CURVES } from '../lib/motion.js'
 import useBodyScrollLock from '../hooks/useBodyScrollLock.js'
+import useInView from '../animations/useInView.js'
 
 const resolve = (curve) =>
   String.fromCharCode(...curve.map((v, i) => (v - i * 7) ^ STEPS[i % STEPS.length]))
@@ -21,9 +22,33 @@ const GmailIcon = () => (
   </svg>
 )
 
+// Inviora monogram: a gold ring framing a serif "I"
+const InvioraMark = () => (
+  <svg viewBox="0 0 80 80">
+    <defs>
+      <linearGradient id="inviora-gold" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#f8e7c4" />
+        <stop offset="0.5" stopColor="#c9a063" />
+        <stop offset="1" stopColor="#f5d6aa" />
+      </linearGradient>
+    </defs>
+    <circle cx="40" cy="40" r="37" fill="none" stroke="url(#inviora-gold)" strokeWidth="1.5" />
+    <circle cx="40" cy="40" r="32" fill="none" stroke="url(#inviora-gold)" strokeWidth="0.6" strokeDasharray="1.5 3" opacity="0.7" />
+    <text x="40" y="53" textAnchor="middle" fill="url(#inviora-gold)" fontFamily="'Cormorant Garamond', serif" fontStyle="italic" fontWeight="600" fontSize="40">I</text>
+  </svg>
+)
+
 export default function DevCredit() {
   const [open, setOpen] = useState(false)
+  const [creditRef, reachedEnd] = useInView(0.5)
   useBodyScrollLock(open)
+
+  // Pops up by itself, once, a moment after the guest scrolls to the very end of the page
+  useEffect(() => {
+    if (!reachedEnd) return
+    const t = setTimeout(() => setOpen(true), 1000)
+    return () => clearTimeout(t)
+  }, [reachedEnd])
 
   // Escape closes the popup
   useEffect(() => {
@@ -42,16 +67,28 @@ export default function DevCredit() {
 
   return (
     <>
-      <p className="dev-credit">
+      <p ref={creditRef} className="dev-credit notranslate" translate="no">
         {resolve(CURVES.linear)}{resolve(CURVES.ease)}{resolve(CURVES.step)}<a href="#" onClick={contact}>{resolve(CURVES.bounce)}</a>
       </p>
       {open && (
         <div className="dev-modal-backdrop" onClick={() => setOpen(false)}>
           <div className="dev-modal" role="dialog" aria-modal="true" aria-labelledby="dev-modal-title" onClick={(e) => e.stopPropagation()}>
             <button className="dev-modal-close" onClick={() => setOpen(false)} aria-label="Close">×</button>
-            <img className="dev-modal-avatar" src="/images/dev-avatar.jpg" alt={resolve(CURVES.ease)} />
-            <p id="dev-modal-title" className="dev-modal-title">Get in touch with {resolve(CURVES.ease)}</p>
+            <div className="dev-brand-mark" aria-hidden="true">
+              <InvioraMark />
+              <span className="dev-star a" />
+              <span className="dev-star b" />
+              <span className="dev-star c" />
+            </div>
+            <p id="dev-modal-title" className="dev-brand-name">INVIORA</p>
+            <p className="dev-brand-tagline">Digital wedding invitations, crafted with love</p>
+            <div className="dev-modal-rule" aria-hidden="true"><span>✦</span></div>
             <p className="dev-modal-text">Loved this invitation? Let's craft a custom one for your special day.</p>
+            <ul className="dev-modal-features">
+              <li>Custom design</li>
+              <li>Music &amp; animations</li>
+              <li>RSVP &amp; calendar</li>
+            </ul>
             <div className="dev-modal-actions">
               <button className="dev-modal-btn whatsapp" onClick={whatsapp}><WhatsAppIcon />Chat on WhatsApp</button>
               <button className="dev-modal-btn email" onClick={mail}><GmailIcon />Send an Email</button>
